@@ -4,6 +4,22 @@
     <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
+    <PackageProjectUrl>https://github.com/rreminy/AG.Collections.RollingList</PackageProjectUrl>
+    <PackageTags>Rolling List Collections</PackageTags>
+    <RepositoryUrl>https://github.com/rreminy/AG.Collections.RollingList</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <Description>A limited capacity rolling list</Description>
+    <Authors>Azure Gem</Authors>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="..\LICENSE.txt" PackagePath="$(PackageLicenseFile)" />
+    <Content Include="..\README.md" PackagePath="$(PackageReadmeFile)"/>
+  </ItemGroup>
 
 </Project>
