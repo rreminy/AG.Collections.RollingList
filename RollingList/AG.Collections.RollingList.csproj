@@ -1,16 +1,17 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net8.0</TargetFramework>
+    <TargetFrameworks>net7.0;net8.0</TargetFrameworks>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
-    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <AssemblyVersion>1.0.1.0</AssemblyVersion>
 
     <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <PackageLicenseFile>LICENSE.txt</PackageLicenseFile>
     <PackageProjectUrl>https://github.com/rreminy/AG.Collections.RollingList</PackageProjectUrl>
     <PackageTags>Rolling List Collections</PackageTags>
+    <PackageVersion>1.0.1</PackageVersion>
     <RepositoryUrl>https://github.com/rreminy/AG.Collections.RollingList</RepositoryUrl>
     <RepositoryType>git</RepositoryType>
     <Description>A limited capacity rolling list</Description>

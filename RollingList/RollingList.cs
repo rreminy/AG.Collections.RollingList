@@ -46,7 +46,7 @@ namespace AG.Collections
                 }
                 else // value < this._size
                 {
-                    ArgumentOutOfRangeException.ThrowIfLessThan(value, 0);
+                    ThrowHelper.ThrowArgumentOutOfRangeExceptionIfLessThan(nameof(value), value, 0);
                     if (value < this.Count)
                     {
                         this._items = new List<T>(this.TakeLast(value));
@@ -63,21 +63,21 @@ namespace AG.Collections
         {
             get
             {
-                ArgumentOutOfRangeException.ThrowIfGreaterThanOrEqual(index, this.Count);
-                ArgumentOutOfRangeException.ThrowIfLessThan(index, 0);
+                ThrowHelper.ThrowArgumentOutOfRangeExceptionIfGreaterThanOrEqual(nameof(index), index, this.Count);
+                ThrowHelper.ThrowArgumentOutOfRangeExceptionIfLessThan(nameof(index), index, 0);
                 return this._items[this.GetRealIndex(index)];
             }
             set
             {
-                ArgumentOutOfRangeException.ThrowIfGreaterThanOrEqual(index, this.Count);
-                ArgumentOutOfRangeException.ThrowIfLessThan(index, 0);
+                ThrowHelper.ThrowArgumentOutOfRangeExceptionIfGreaterThanOrEqual(nameof(index), index, this.Count);
+                ThrowHelper.ThrowArgumentOutOfRangeExceptionIfLessThan(nameof(index), index, 0);
                 this._items[this.GetRealIndex(index)] = value;
             }
         }
 
         public RollingList(int size, int capacity)
         {
-            ArgumentOutOfRangeException.ThrowIfLessThan(size, 0);
+            ThrowHelper.ThrowArgumentOutOfRangeExceptionIfLessThan(nameof(size), size, 0);
             capacity = Math.Min(capacity, size);
             this._size = size;
             this._items = new List<T>(capacity);
@@ -85,9 +85,9 @@ namespace AG.Collections
 
         public RollingList(int size)
         {
-            ArgumentOutOfRangeException.ThrowIfLessThan(size, 0);
+            ThrowHelper.ThrowArgumentOutOfRangeExceptionIfLessThan(nameof(size), size, 0);
             this._size = size;
-            this._items = [];
+            this._items = new();
         }
 
         public RollingList(IEnumerable<T> items, int size, int capacity)
@@ -153,7 +153,7 @@ namespace AG.Collections
 
         public void CopyTo(T[] array, int arrayIndex)
         {
-            ArgumentOutOfRangeException.ThrowIfNegative(arrayIndex);
+            ThrowHelper.ThrowArgumentOutOfRangeExceptionIfLessThan(nameof(arrayIndex), arrayIndex, 0);
             if (array.Length - arrayIndex < this.Count) ThrowArgumentException("Not enough space");
             for (var index = 0; index < this.Count; index++)
             {
