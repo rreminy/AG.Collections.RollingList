@@ -90,6 +90,15 @@ namespace AG.Collections
             this._items = new();
         }
 
+        public RollingList(IEnumerable<T> items, int size)
+        {
+            if (!items.TryGetNonEnumeratedCount(out var capacity)) capacity = 4;
+            capacity = Math.Min(capacity, size);
+            this._size = size;
+            this._items = new List<T>(capacity);
+            this.AddRange(items);
+        }
+
         public RollingList(IEnumerable<T> items, int size, int capacity)
         {
             if (items.TryGetNonEnumeratedCount(out var count) && count > capacity) capacity = count;
