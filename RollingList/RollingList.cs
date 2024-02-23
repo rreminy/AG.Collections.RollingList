@@ -15,7 +15,7 @@ namespace AG.Collections
     /// Insertions and Removals are not supported.
     /// Not thread-safe.
     /// </remarks>
-    internal class RollingList<T> : IList<T>
+    public class RollingList<T> : IList<T>
     {
         private List<T> items;
         private int size;
